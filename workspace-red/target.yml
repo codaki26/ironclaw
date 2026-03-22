@@ -1,0 +1,23 @@
+# IronClaw — Target Configuration
+# ONLY these targets may be attacked. Everything else is FORBIDDEN.
+
+targets:
+  - name: station11
+    host: 77.42.21.117
+    ssh_port: 43532
+    ssh_user: david
+    ssh_key: ~/.ssh/station11
+    services:
+      - codaki-site (web, port 80 via traefik)
+      - amagid-landing (web, port 80 via traefik)
+      - traefik (reverse proxy)
+      - cloudflared (tunnel)
+      - ssh (port 43532)
+    domains:
+      - test.codaki.com
+      - codaki.com
+      - amagid.codaki.com
+    notes: |
+      Production server running Docker containers.
+      Behind Cloudflare tunnel.
+      fail2ban active.

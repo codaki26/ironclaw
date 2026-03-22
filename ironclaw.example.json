@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/openclaw/config-schema.json",
+  "name": "IronClaw",
+  "version": "0.1.0",
+  
+  "providers": {
+    "anthropic": {
+      "apiKey": "YOUR_ANTHROPIC_KEY"
+    }
+  },
+
+  "agents": {
+    "defaults": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "maxConcurrent": 1
+    },
+    "list": [
+      {
+        "id": "red",
+        "name": "Red Agent",
+        "model": "anthropic/claude-sonnet-4-6",
+        "workspace": "./workspace-red"
+      },
+      {
+        "id": "blue",
+        "name": "Blue Agent",
+        "model": "anthropic/claude-sonnet-4-6",
+        "workspace": "./workspace-blue"
+      }
+    ]
+  },
+
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN"
+    }
+  },
+
+  "cron": {
+    "enabled": true
+  }
+}
